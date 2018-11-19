@@ -1,5 +1,5 @@
 # 4d-plugin-prevent-app-nap
-Prevent App Nap
+Prevent App Nap using [beginActivityWithOptions:reason:](https://developer.apple.com/documentation/foundation/nsprocessinfo/1415995-beginactivitywithoptions) 
 
 ### Platform
 
