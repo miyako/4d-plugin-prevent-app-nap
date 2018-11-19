@@ -21,12 +21,15 @@ Prevent App Nap using [beginActivityWithOptions:reason:](https://developer.apple
 
 ```
 BEGIN IMPORTANT ACTIVITY (options;reason)
+END IMPORTANT ACTIVITY
 ```
 
 Parameter|Type|Description
 ------------|------------|----
 options|LONGINT|combination of ``Prevent system sleep`` ``Prevent automatic termination`` ``Prevent display sleep`` ``Prevent sudden termination``
 reason|TEXT|
+
+**Note**: ``END IMPORTANT ACTIVITY`` is automatically called when you close your application
 
 ## Examples
 
