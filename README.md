@@ -36,6 +36,6 @@ TRACE
 END IMPORTANT ACTIVITY 
 ```
 
-4D will appear as "prevent sleep" in Activity Monitor
+4D will appear as "preventing sleep" in Activity Monitor
 
 <img width="946" alt="2018-11-19 18 11 05" src="https://user-images.githubusercontent.com/1725068/48697010-dcac6c80-ec26-11e8-9ae6-6f70b685e499.png">
