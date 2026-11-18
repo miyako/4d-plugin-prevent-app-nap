@@ -4,17 +4,22 @@
 #
 #   tests/ownership/run.sh <repo-root> <fixed|baseline>
 #
-# <repo-root> provides prevent-app-nap/ (plugin sources and the bundled
-# 4D Plugin API). The harness itself always comes from this script's
-# directory, so the SAME harness can be run against an immutable baseline
-# (git archive of the base SHA) and against the fixed tree.
+# <repo-root> provides the plugin sources and the bundled 4D Plugin API
+# (at the root since the flattening; a pre-flattening baseline archive still
+# has them under prevent-app-nap/). The harness itself always comes from this
+# script's directory, so the SAME harness can be run against an immutable
+# baseline (git archive of the base SHA) and against the fixed tree.
 #
 # In "fixed" mode every test must pass. In "baseline" mode the tests named
 # in EXPECTED_BASELINE_FAILURES must fail and every other test (the
 # controls) must pass; anything else is a harness or model error.
 set -euo pipefail
 
-SRC=$(cd "$1/prevent-app-nap" && pwd)
+if [ -d "$1/prevent-app-nap" ]; then
+    SRC=$(cd "$1/prevent-app-nap" && pwd)
+else
+    SRC=$(cd "$1" && pwd)
+fi
 MODE=$2
 HERE=$(cd "$(dirname "$0")" && pwd)
 OUT=$(mktemp -d)

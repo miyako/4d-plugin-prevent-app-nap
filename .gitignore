@@ -1,2 +1,8 @@
-
-prevent-app-nap/build/*
+.DS_Store
+build/
+*.4dbase/Logs/
+*.4dbase/userPreferences.*/
+/Prevent App Nap.dmg
+/Prevent App Nap.zip
+Prevent App Nap.4dbase/Plugins/Prevent App Nap.bundle/Contents/MacOS/
+Prevent App Nap.4dbase/Plugins/Prevent App Nap.bundle/Contents/_CodeSignature/
