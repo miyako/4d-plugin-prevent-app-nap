@@ -53,7 +53,7 @@ bool IsProcessOnExit()
     PA_long32 state, time;
     PA_GetProcessInfo(PA_GetCurrentProcessNumber(), name, &state, &time);
     CUTF16String procName(name.getUTF16StringPtr());
-    CUTF16String exitProcName((PA_Unichar *)"$\0x\0x\0\0\0");
+    CUTF16String exitProcName((const PA_Unichar *)u"$xx");
     return (!procName.compare(exitProcName));
 }
 
@@ -120,7 +120,10 @@ void BEGIN_IMPORTANT_ACTIVITY(PA_PluginParameters params)
     NSString *reason = Param2.copyUTF16String();
     
     if(![reason length])
-        reason = @"important activity";
+    {
+        [reason release];
+        reason = [@"important activity" retain];
+    }
     
     END_IMPORTANT_ACTIVITY(params);
     
@@ -130,7 +133,7 @@ void BEGIN_IMPORTANT_ACTIVITY(PA_PluginParameters params)
     
     [activityId retain];
     
-    NSLog(@"beginActivityWithOptions:%d", options);
+    NSLog(@"beginActivityWithOptions:%lu", (unsigned long)options);
     
     [reason release];
 }
